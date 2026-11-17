@@ -1,8 +1,8 @@
-import {O,R,B,H,clean} from './_gh.js';
+import {O,R,B,H,clean,R_} from './_gh.js';
 const MT={html:'text/html',htm:'text/html',pdf:'application/pdf',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',webp:'image/webp',txt:'text/plain',md:'text/plain',css:'text/css',js:'text/plain'};
 export default async(req,res)=>{
  try{
-  const p=clean(req.query.path),url=`https://api.github.com/repos/${O}/${R}/contents/${p.split('/').map(encodeURIComponent).join('/')}?ref=${B}`;
+  const sp=clean(req.query.path),p=R_(sp),url=`https://api.github.com/repos/${O}/${R}/contents/${p.split('/').map(encodeURIComponent).join('/')}?ref=${B}`;
   const r=await fetch(url,{headers:H({Accept:'application/vnd.github.raw+json'})});
   if(!r.ok)return res.status(r.status).json({error:r.status===404?'File not found':'GitHub error '+r.status});
   const ext=p.split('.').pop().toLowerCase();

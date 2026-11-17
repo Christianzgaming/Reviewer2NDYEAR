@@ -1,5 +1,6 @@
 import crypto from 'node:crypto';
-import {gh,B,clean} from './_gh.js';
+import {gh,B,clean as c0,R_} from './_gh.js';
+const clean=p=>R_(c0(p));
 const sec=()=>process.env.SESSION_SECRET||'';
 const sign=s=>crypto.createHmac('sha256',sec()).update(s).digest('hex');
 const eq=(a,b)=>{a=Buffer.from(a);b=Buffer.from(b);return a.length===b.length&&crypto.timingSafeEqual(a,b)};
