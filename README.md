@@ -3,6 +3,9 @@
 The site reads your **content repo** (e.g. `academic-archive`) live through the GitHub Git Trees API. Nothing is hardcoded:
 push a folder, HTML, or PDF to GitHub and it appears within ~15 seconds. Dotfiles and `README.md` are hidden.
 
+## Content folder
+By default only the `Reviewer` folder is shown as Home (set `CONTENT_ROOT` to change it; set it empty to show the whole repo).
+
 ## Deploy
 1. Push this project to its own GitHub repo and import it in Vercel.
 2. Add Environment Variables (Project → Settings):
